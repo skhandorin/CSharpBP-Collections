@@ -35,7 +35,7 @@ namespace Acme.Biz
         /// Retrieves all of the approved vendors
         /// </summary>
         /// <returns></returns>
-        public List<Vendor> Retrieve()
+        public IEnumerable<Vendor> Retrieve()
         {
             if (vendors == null)
             {
@@ -52,43 +52,8 @@ namespace Acme.Biz
 
             foreach (var vendor in vendors)
             {
-                Console.WriteLine(vendor);
+                //Console.WriteLine(vendor);
             }
-
-            return vendors;
-        }
-
-        /// <summary>
-        /// Retrieves all of the approved vendors
-        /// </summary>
-        /// <returns></returns>
-        public Dictionary<string, Vendor> RetrieveWithKeys()
-        {
-            var vendors = new Dictionary<string, Vendor>()
-            {
-                { "ABC Corp", new Vendor(){ VendorId = 5, CompanyName = "ABC Corp", Email = "abc@abc.com" } },
-                { "XYZ Inc", new Vendor() { VendorId = 8, CompanyName = "XYZ Inc", Email = "xyz@xyz.com" } }
-            };
-
-            foreach (var element in vendors)
-            {
-                Console.WriteLine($"Key: {element.Key} Value: {element.Value}");
-            }
-
-            //foreach (var vendor in vendors.Values)
-            //{
-            //    Console.WriteLine(vendor);
-            //}
-
-            //foreach (var companyName in vendors.Keys)
-            //{
-            //    Console.WriteLine(vendors[companyName]);
-            //}
-
-            //if (vendors.ContainsKey("XYZ In")) Console.WriteLine(vendors["XYZ In"]);
-
-            //Vendor vendor;
-            //if (vendors.TryGetValue("XYZ In", out vendor)) Console.WriteLine(vendor);
 
             return vendors;
         }

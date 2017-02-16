@@ -54,22 +54,7 @@ namespace Acme.Biz.Tests
 
             var actual = repository.Retrieve();
 
-            CollectionAssert.AreEqual(expected, actual);
-        }
-
-        [TestMethod()]
-        public void RetrieveWithKeysTest()
-        {
-            var repository = new VendorRepository();
-            var expected = new Dictionary<string, Vendor>()
-            {
-                { "ABC Corp", new Vendor(){ VendorId = 5, CompanyName = "ABC Corp", Email = "abc@abc.com" } },
-                { "XYZ Inc", new Vendor() { VendorId = 8, CompanyName = "XYZ Inc", Email = "xyz@xyz.com" } }
-            };
-
-            var actual = repository.RetrieveWithKeys();
-
-            CollectionAssert.AreEqual(expected, actual);
+            CollectionAssert.AreEqual(expected, actual.ToList());
         }
     }
 }
